@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+  body
+    table
+      - for server in $servers
+      	tr
+      	  th Server
+      	  th Status
+        tr
+      	  td = server[0]
+      	  td = server[1]['status'].nil? ? '?' : server[1]['status']
+    css:
+      table {
+      	border: 1px solid black;
+      	margin: auto;
+      }
+      td {
+      	padding: 3px 10px 3px 10px;
+      }
