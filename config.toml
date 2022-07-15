@@ -1,20 +1,28 @@
 [r-desktop]
 ip = "192.168.1.100"
+port-VNC = 5900
+port-SSH = 2222
 
 [ircbox]
 ip = "192.168.1.104"
+port-VNC = 5900
+port-SSH = 22
 
 [mopidy]
 ip = "192.168.1.103"
+port-VNC = 5900
+port-SSH = 22
 
 [r-mint]
 ip = "192.168.1.102"
+port-SSH = 22
 
 [Telefoon]
 ip = "192.168.1.101"
 
 [YeeLightL]
 ip = "192.168.1.111"
+button-toggle = "echo -e '{\"id\":0,\"method\":\"toggle\",\"params\":[]}'\"\r\"| nc 192.168.1.110 55443"
 
 [YeeLightR]
 ip = "192.168.1.110"

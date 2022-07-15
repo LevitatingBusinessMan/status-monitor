@@ -4,12 +4,26 @@ html
   body
     table
       - for server in $servers
+       	ruby:
+	  	  def render_status status
+	  	  	return '<td>?<\td>' if status.nil?
+	  	  	"<td class=\"#{status ? 'green' : 'red'}\">#{status}</td>"
+	  	  end
       	tr
       	  th Server
       	  th Status
+      	  - if server[1]['status']
+      	 	- for port in server[1]['ports']
+      	  		th[title=port['port']] = port['name']
         tr
       	  td = server[0]
-      	  td = server[1]['status'].nil? ? '?' : server[1]['status']
+
+		  == render_status server[1]['status']
+
+      	  /ports
+     	  - if server[1]['status']
+  	        - for port in server[1]['ports']
+  	          == render_status port['status']
     css:
       table {
       	margin: auto;
@@ -18,4 +32,12 @@ html
       td, th {
       	padding: 3px 10px 5px 10px;
      	border: 1px solid black;
+      }
+
+      .green {
+      	color: green;
+      }
+
+      .red {
+      	color: red;
       }
