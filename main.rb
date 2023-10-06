@@ -1,7 +1,7 @@
 require 'toml'
 require 'sinatra'
 
-$servers = TOML.load_file 'config.toml'
+$servers = TOML.load_file "#{__dir__}/config.toml"
 
 PORT = ENV['PORT'] || 2952
 
