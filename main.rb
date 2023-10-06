@@ -41,15 +41,6 @@ $servers.each do |server|
 	end
 end
 
-def render_status status
-	return '<td>?<\td>' if status.nil?
-	"<td class=\"#{status ? 'green' : 'red'}\">#{status}</td>"
-end
-
 get '/' do
 	slim :index
 end
-
-#get '/button/:server/:button'
-
-#end
